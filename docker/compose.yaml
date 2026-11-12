@@ -1,0 +1,42 @@
+name: it-helpdesk-lab
+
+services:
+  glpi:
+    image: glpi/glpi:latest
+    container_name: glpi
+    restart: unless-stopped
+    ports:
+      - "${GLPI_HTTP_PORT:-8080}:80"
+    environment:
+      GLPI_DB_HOST: db
+      GLPI_DB_PORT: 3306
+      GLPI_DB_NAME: ${GLPI_DB_NAME:-glpi}
+      GLPI_DB_USER: ${GLPI_DB_USER:-glpi_app}
+      GLPI_DB_PASSWORD: ${GLPI_DB_PASSWORD:?Set GLPI_DB_PASSWORD in .env}
+    volumes:
+      - glpi_data:/var/glpi
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8.0
+    container_name: glpi-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${GLPI_DB_NAME:-glpi}
+      MYSQL_USER: ${GLPI_DB_USER:-glpi_app}
+      MYSQL_PASSWORD: ${GLPI_DB_PASSWORD:?Set GLPI_DB_PASSWORD in .env}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p$${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+volumes:
+  glpi_data:
+  db_data:

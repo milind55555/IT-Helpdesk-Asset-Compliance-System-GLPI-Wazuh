@@ -1,0 +1,2 @@
+ticket_id,ticket_type,category,summary,requester,affected_asset_id,impact,urgency,priority,assignment_group,status,created_at,first_response_at,resolved_at,root_cause,resolution,approver,evidence_reference
+LAB-INC-001,Incident,Printing,Example printer queue issue,lab.user,LAB-PRN-001,Low,Low,P4,Service Desk,Closed,2026-11-01T09:00:00,2026-11-01T09:15:00,2026-11-01T10:00:00,Sample cause,Sample fix,N/A,EVID-LAB-001

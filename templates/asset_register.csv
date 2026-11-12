@@ -1,0 +1,4 @@
+asset_id,asset_type,manufacturer,model,serial_number,hostname,operating_system,assigned_to,department,location,purchase_date,warranty_end,status,criticality,owner,last_verified,wazuh_agent_id,wazuh_agent_status,glpi_record_id,notes
+LAB-LAP-001,Laptop,ExampleVendor,LabBook-14,SYNTHETIC-SERIAL-001,LAB-WIN-01,Windows 11,lab.user,IT,Lab Desk A,2026-01-01,2028-01-01,Assigned,Medium,IT Support,2026-11-01,000,Active,1,Synthetic example row; replace or remove before use
+LAB-PRN-001,Printer,ExampleVendor,OfficePrint-200,SYNTHETIC-SERIAL-002,,Firmware N/A,,Administration,Lab Room,2026-01-01,2027-01-01,In Stock,Low,IT Support,2026-11-01,,,2,Synthetic example row; replace or remove before use
+LAB-CAM-001,Camera,ExampleVendor,IP-Cam-Lab,SYNTHETIC-SERIAL-003,,Firmware N/A,,Security,Lab Entrance,2026-01-01,2027-01-01,Assigned,Medium,Facilities,2026-11-01,,,3,Synthetic example row; replace or remove before use

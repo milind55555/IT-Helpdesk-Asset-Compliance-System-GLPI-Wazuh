@@ -1,0 +1,27 @@
+<!--
+  Illustrative local Wazuh rules. Validate field names and event decoders with
+  `wazuh-logtest` using events from your own endpoint before deployment.
+  Rule IDs 100100-100199 are reserved here for this lab's local examples.
+-->
+<group name="local,windows,lab,">
+  <!-- Windows Security event 4625: failed logon. -->
+  <rule id="100100" level="5">
+    <field name="win.system.eventID">^4625$</field>
+    <description>Lab: Windows failed logon event (4625).</description>
+    <group>authentication_failed,windows,</group>
+  </rule>
+
+  <!-- Windows Defender Operational event 5001: real-time protection disabled. -->
+  <rule id="100101" level="10">
+    <field name="win.system.eventID">^5001$</field>
+    <description>Lab: Windows Defender real-time protection disabled event.</description>
+    <group>endpoint_protection,windows,</group>
+  </rule>
+
+  <!-- Windows Defender Operational event 1116: malware detection event. -->
+  <rule id="100102" level="12">
+    <field name="win.system.eventID">^1116$</field>
+    <description>Lab: Windows Defender malware detection event; investigate endpoint.</description>
+    <group>endpoint_protection,malware,windows,</group>
+  </rule>
+</group>

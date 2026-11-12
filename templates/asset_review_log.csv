@@ -1,0 +1,2 @@
+review_id,review_date,asset_id,glpi_record_found,endpoint_or_agent_found,owner_confirmed,status_correct,exception,action_owner,due_date,evidence_reference
+LAB-ASR-001,2026-11-01,LAB-LAP-001,Yes,Yes,Yes,Yes,None,IT Support,2026-11-15,EVID-LAB-004

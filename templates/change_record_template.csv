@@ -1,0 +1,2 @@
+change_id,title,reason,affected_service_or_assets,risk,impact,implementation_plan,test_plan,rollback_plan,requested_by,approver,scheduled_start,scheduled_end,status,outcome,evidence_reference
+LAB-CHG-001,Example lab configuration change,Training exercise,LAB-WIN-01,Low,Low,Documented steps,Connectivity and log validation,Restore previous config,lab.user,lab.admin,2026-11-10T10:00:00,2026-11-10T10:30:00,Closed,Successful lab validation,EVID-LAB-002

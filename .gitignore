@@ -1,0 +1,26 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+
+# Runtime state and backups
+*.sql
+*.sql.gz
+*.bak
+*.dump
+backups/
+logs/
+
+# Local inventory exports can include serial numbers and device details
+endpoint-inventory*.csv
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

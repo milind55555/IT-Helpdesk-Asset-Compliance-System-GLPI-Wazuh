@@ -1,0 +1,50 @@
+<!--
+  Example snippets for a Wazuh agent. Merge the relevant blocks into the
+  installed agent's ossec.conf; do not blindly overwrite a vendor-generated file.
+  Replace MANAGER_IP_OR_DNS with the private address of your Wazuh manager.
+  Validate against the documentation for your installed Wazuh release.
+-->
+<ossec_config>
+  <client>
+    <server>
+      <address>MANAGER_IP_OR_DNS</address>
+      <port>1514</port>
+      <protocol>tcp</protocol>
+    </server>
+    <config-profile>windows,lab</config-profile>
+    <notify_time>10</notify_time>
+    <time-reconnect>60</time-reconnect>
+  </client>
+
+  <syscheck>
+    <disabled>no</disabled>
+    <frequency>43200</frequency>
+    <scan_on_start>yes</scan_on_start>
+    <!-- Select a small, relevant lab folder; avoid monitoring huge volatile paths. -->
+    <directories check_all="yes" realtime="yes">C:\Lab\Watch</directories>
+  </syscheck>
+
+  <wodle name="syscollector">
+    <disabled>no</disabled>
+    <interval>1h</interval>
+    <scan_on_start>yes</scan_on_start>
+    <hardware>yes</hardware>
+    <os>yes</os>
+    <network>yes</network>
+    <packages>yes</packages>
+    <ports all="yes">yes</ports>
+    <processes>yes</processes>
+    <users>yes</users>
+    <groups>yes</groups>
+    <services>yes</services>
+  </wodle>
+
+  <localfile>
+    <location>Microsoft-Windows-Sysmon/Operational</location>
+    <log_format>eventchannel</log_format>
+  </localfile>
+  <localfile>
+    <location>Microsoft-Windows-Windows Defender/Operational</location>
+    <log_format>eventchannel</log_format>
+  </localfile>
+</ossec_config>
